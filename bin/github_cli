@@ -1,0 +1,8 @@
+#!/usr/bin/env bundle exec ruby
+
+require 'readline'
+require_relative "../lib/application"
+
+app = GithubCli::Terminal.new(io: Kernel, github_client: GithubCli::GithubClient.new)
+
+loop {app.print_favourite_language_for(Readline.readline("> Enter a Github username to find its favourite programming language: "))}
