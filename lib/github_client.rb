@@ -5,10 +5,8 @@ module GithubCli
 		include HTTParty
 		base_uri "https://api.github.com"
 
-		API_KEY = ENV['GITHUB_API_KEY']
-
 		def get_repos_for(user)
-			make_request("/users/#{user.username}/repos?access_token=#{API_KEY}")
+			make_request("/users/#{user.username}/repos?access_token=#{github_api_key}")
 		end
 
 		private
@@ -26,7 +24,12 @@ module GithubCli
 		end
 
 		def headers
-    	{"User-Agent" => "Test"}
-  	end
+			{"User-Agent" => "Test"}
+		end
+
+	  def github_api_key
+			ENV['GITHUB_API_KEY'] || abort("No access token specified.")
+		end
+
 	end
 end
