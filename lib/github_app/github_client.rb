@@ -22,7 +22,7 @@ module GithubApp
 
 			begin
 				response["message"]
-			rescue
+			rescue TypeError
 				@repos = response
 			end
 			@repos

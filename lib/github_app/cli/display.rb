@@ -9,7 +9,7 @@ module GithubApp
       def print_favourite_language_for(user)
         begin
           @output.puts "#{user.username}'s favourite programming language is #{user.favourite_language}."
-        rescue
+        rescue NoMethodError
           @output.puts "You entered an invalid username."
         end
       end
