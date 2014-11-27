@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../lib/user'
+require 'github_cli/user'
 
 describe GithubCli::User do
 	subject(:user) { GithubCli::User.new(username: 'laurentqro', github_client: GithubCli::GithubClient.new) }

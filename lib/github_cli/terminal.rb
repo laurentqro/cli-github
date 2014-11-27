@@ -1,4 +1,4 @@
-require_relative '../lib/user'
+require 'github_cli/user'
 
 module GithubCli
 	class Terminal

@@ -1,5 +1,5 @@
-require File.dirname(__FILE__) + '/../../lib/github_client'
-require File.dirname(__FILE__) + '/../../lib/terminal'
+require File.dirname(__FILE__) + '/../../lib/github_cli/github_client'
+require File.dirname(__FILE__) + '/../../lib//github_cli/terminal'
 
 Before do
 	@io = StringIO.new

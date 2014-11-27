@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../lib/application'
+require 'github_cli/main'
 
 describe GithubCli::GithubClient do
 	subject(:client) { GithubCli::GithubClient.new }
