@@ -1,6 +1,6 @@
-module GithubCli
+module GithubApp
 	class User
-		attr_reader :username, :github_client
+		attr_reader :username
 
 		def initialize(username: username, github_client: github_client)
 			@username = username
@@ -19,7 +19,7 @@ module GithubCli
 
 		private
 		def repos
-			github_client.get_repos_for(self)
+			@github_client.get_repos_for(self)
 		end
 	end
 end

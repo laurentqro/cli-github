@@ -1,11 +1,12 @@
 require 'spec_helper'
-require 'github_cli/main'
+require 'github_app/user'
+require 'github_app/github_client'
 
-describe GithubCli::GithubClient do
-	subject(:client) { GithubCli::GithubClient.new }
+describe GithubApp::GithubClient do
+	subject(:client) { GithubApp::GithubClient.new }
 
 	context "when laurentqro's repos are requested" do
-    let(:user) { GithubCli::User.new(username: "laurentqro", github_client: client) }
+    let(:user) { GithubApp::User.new(username: "laurentqro") }
     let(:repos) { client.get_repos_for(user) }
 
 		it "makes a request to Github" do
@@ -28,7 +29,7 @@ describe GithubCli::GithubClient do
   end
 
   context "when an invalid username is entered" do
-  	let(:user) { GithubCli::User.new(username: "invalid_username", github_client: client) }
+  	let(:user) { GithubApp::User.new(username: "invalid_username") }
     let(:repos) { client.get_repos_for(user) }
 
     it "returns an empty array" do

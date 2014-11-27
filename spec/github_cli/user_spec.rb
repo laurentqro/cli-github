@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'github_cli/user'
+require 'github_app/user'
 
-describe GithubCli::User do
-	subject(:user) { GithubCli::User.new(username: 'laurentqro', github_client: GithubCli::GithubClient.new) }
+describe GithubApp::User do
+	subject(:user) { GithubApp::User.new(username: 'laurentqro', github_client: GithubApp::GithubClient.new) }
 
 	it { is_expected.to respond_to :username }
 

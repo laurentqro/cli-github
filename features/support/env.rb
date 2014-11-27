@@ -1,8 +1,10 @@
-require File.dirname(__FILE__) + '/../../lib/github_cli/github_client'
-require File.dirname(__FILE__) + '/../../lib//github_cli/terminal'
+require 'github_app/cli/display'
+require 'github_app/application'
+require "github_app/github_client"
 
 Before do
-	@io = StringIO.new
-	@github_client = GithubCli::GithubClient.new
-	@app = GithubCli::Terminal.new(io: @io, github_client: @github_client)
+	@github_client = GithubApp::GithubClient.new
+  @input = StringIO.new
+  @output = StringIO.new
+  @app = GithubApp::Application.new(display: GithubApp::Cli::Display.new(input: @input, output: @output))
 end
