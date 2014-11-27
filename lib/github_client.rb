@@ -12,15 +12,20 @@ module GithubCli
 		private
 
 		def make_request(url)
+			@repos = []
+
 			begin
 				response = self.class.get(url, headers: headers)
-				if response.code !=200
-					abort("Error: #{response.message}")
-				end
-				response
-			rescue => error
-				abort("Error: #{error.message}")
+			rescue
+				response = []
 			end
+
+			begin
+				response["message"]
+			rescue
+				@repos = response
+			end
+			@repos
 		end
 
 		def headers

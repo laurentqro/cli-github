@@ -13,7 +13,9 @@ RSpec.configure do |config|
     repos_json_file = File.open('spec/support/fixtures/repos.json').read
 
     stub_request(:get, "https://api.github.com/users/laurentqro/repos").
-    with(:headers => { 'User-Agent' => 'Test' }).
     to_return(:status => 200, :body => repos_json_file, headers: { 'Content-Type' => 'application/json' })
+
+    stub_request(:get, 'https://api.github.com/users/invalid_username/repos').
+    to_return(status: 200, body:'{"message": "Not Found"}', headers: {'Content-Type' => 'application/json'})
   end
 end

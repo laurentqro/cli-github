@@ -26,4 +26,13 @@ describe GithubCli::GithubClient do
       expect(repos.first["name"]).to eql "awesome-ruby"
     end
   end
+
+  context "when an invalid username is entered" do
+  	let(:user) { GithubCli::User.new(username: "invalid_username", github_client: client) }
+    let(:repos) { client.get_repos_for(user) }
+
+    it "returns an empty array" do
+    	expect(repos).to eql []
+    end
+  end
 end
