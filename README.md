@@ -8,8 +8,8 @@ A simple command line application that allows users to enter an arbitrary GitHub
 
 * Clone the repository.
 * `cd` into the cloned repository.
-* To run the program: `bin/github_cli`.
-* To quit: `Ctrl` + `C`.
+* To run the program: `bin/favelang [github_username]`.
+* If the program fails to run due to permissions, type `chmod a+x bin/favelang`
 
 ###### Tests
 
