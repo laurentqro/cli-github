@@ -1,6 +1,6 @@
 require "httparty"
 
-module GithubCli
+module GithubApp
 	class GithubClient
 		include HTTParty
 		base_uri "https://api.github.com"
